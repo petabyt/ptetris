@@ -4,17 +4,12 @@
 #include <stdint.h>
 #include <stdio.h>
 
-// Max array size
-#ifndef PT_MAX_WIDTH
-	#define PT_MAX_WIDTH 40
-	#define PT_MAX_HEIGHT 40
-#endif
-
 // Darken the color around blocks
 #ifndef PT_COL_DARKEN
 	#define PT_COL_DARKEN(x) x
 #endif
 
+// Basic random number generator
 #ifndef PT_RAND
 	uint32_t pt_rand_x = 0xab893919;
 	int pt_rand(int max) {
