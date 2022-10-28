@@ -8,12 +8,14 @@ void pt_pixel(int x, int y, int col) {
 	CNFGTackPixel(x, y);
 }
 
-uint32_t pt_colors[5] = {
+uint32_t pt_colors[] = {
 	0xc4c4c400, // background color
 	0xff110000,
 	0x0026ff00,
 	0xffe60000,
 	0xcc42eb00,
+	//0x00e5ff00,
+	0xfca00a00,
 };
 
 #include "ptetris.h"
@@ -24,10 +26,9 @@ void HandleDestroy() { }
 
 void HandleKey( int keycode, int bDown ) {
 	// mess with random number
-	pt_rand_x += keycode + bDown;
+	pt_rand_x -= keycode - bDown;
 
 	if( keycode == CNFG_KEY_ESCAPE ) exit( 0 );
-	//printf( "Key: %d -> %d\n", keycode, bDown );
 	if (bDown != 1) return;
 
 	switch (keycode) {
@@ -71,7 +72,7 @@ int main() {
 		if (frame <= 30) goto end;
 		frame = 0;
 
-		if (pt_step()) {
+		if (pt_step() == PT_GAME_OVER) {
 			return 0;
 		}
 

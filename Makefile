@@ -1,3 +1,3 @@
-all:
-	gcc main.c -lX11 -o main.o
-	./main.o
+rawdraw:
+	gcc rawdraw.c -lX11 -o rawdraw.o
+	./rawdraw.o
