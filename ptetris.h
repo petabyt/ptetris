@@ -21,7 +21,7 @@
 	int pt_rand(int max) {
 		pt_rand_x += 7;
 		pt_rand_x *= 0x87654321;
-		return pt_rand_x & max;
+		return pt_rand_x % max;
 	}
 
 	#define PT_RAND(x) pt_rand(x)
